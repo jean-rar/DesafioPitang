@@ -1,0 +1,48 @@
+<form class="search-form" (submit)="searchUser()">
+
+    <mat-form-field class="search-input-wrapper" appearance="outline">
+
+        <mat-label>Buscar Usuário</mat-label>
+
+        <input matInput [formControl]="searchCtrl">
+
+        <button mat-mini-fab color="primary" matSuffix type="submit">
+            <mat-icon matSuffix>
+                search
+            </mat-icon>
+        </button>
+
+    </mat-form-field>
+
+</form>
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<mat-expansion-panel class="expansive-painel" *ngIf="showProfile">
+    <img class="avatar" matListAvatar [src]="user?.avatar_url">
+    <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title">
+            {{ user?.name }}
+        </mat-panel-title>
+        <mat-panel-description class="panel-description">
+            {{ user?.location}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-divider class="divider"></mat-divider>
+    <button (click)="followList('followers')" class="profile-button" mat-stroked-button color="disabled" routerLink="followers" routerLinkActive="active-link">Followers:{{user?.followers}}</button>
+    <button class="profile-button profile-button-margin" mat-stroked-button color="stroked" routerLink="following" routerLinkActive="active-link">Following:{{user?.following}} </button>
+    <mat-divider class="divider"></mat-divider>
+</mat-expansion-panel>
+
+<mat-card *ngIf="expandAbout">
+    <mat-card-title>
+        <p>About</p>
+    </mat-card-title>
+    <mat-card-subtitle>
+        <p>{{user?.bio ? user?.bio : "Sem descrição no momento"}}</p>
+    </mat-card-subtitle>
+</mat-card>
+
+<mat-card *ngIf="expandPanel">
+    <mat-card-title>
+        <p>Followers</p>
+    </mat-card-title>
+</mat-card>

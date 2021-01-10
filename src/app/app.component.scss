@@ -1,0 +1,70 @@
+.header {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .app-content, .header-content {
+    margin: 0 auto;
+  }
+  
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+  }
+  
+  .active-link {
+    border-bottom: 2px solid #D13E32;
+  }
+  
+  // mobileS
+  @media (min-width: 320px) {
+    .app-content, .header-content {
+      width: 90%;
+    }
+  }
+  
+  // mobileM
+  @media (min-width: 375px) {
+    .app-content, .header-content {
+      width: 85%;
+    }
+  }
+  
+  // mobileL
+  @media (min-width: 425px) {
+    .app-content, .header-content {
+      width: 82.5%;
+    }
+  }
+  
+  // tablet
+  @media (min-width: 768px) {
+    .app-content, .header-content {
+      width: 50%;
+    }
+  }
+  
+  // laptop
+  @media (min-width: 1024px) {
+    .app-content, .header-content {
+      width: 40%;
+    }
+  }
+  
+  // laptopL
+  @media (min-width: 1440px) {
+    .app-content, .header-content {
+      width: 35%;
+    }
+  }
+  
+  // desktop
+  @media (min-width: 2560px) {
+    .app-content, .header-content {
+      width: 30%;
+    }
+  }
+  
