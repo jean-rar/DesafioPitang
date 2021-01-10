@@ -15,5 +15,6 @@ export class GithubApiService {
 
   public getUser(userName: string): Observable<User>{
     return this.http.get<User>(`${this.GITHUB_API}/users/${userName}`);
+    console.log;
   }
 }
