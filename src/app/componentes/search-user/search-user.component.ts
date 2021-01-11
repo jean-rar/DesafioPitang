@@ -35,7 +35,6 @@ export class SearchUserComponent implements OnInit {
     this.githubApiService.getUser(this.searchCtrl.value).subscribe((res: User) => {
       this.userLogin = res.login;
       this.user = res;
-      console.log(this.user)
       this.loading = false;
     });
   }
