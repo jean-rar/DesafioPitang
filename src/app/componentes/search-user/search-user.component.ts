@@ -11,15 +11,16 @@ import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 })
 export class SearchUserComponent implements OnInit {
 
+  followers: any;
   expandPanel = false;
   expandAbout = false;
   showProfile = false;
   loading = false;
   user: any;
   userLogin = '';
-  followers =[];
-  following =[];
+  following: any;
   expandFollowingPanel = false;
+  
 
   searchCtrl = new FormControl('', Validators.required);
 
