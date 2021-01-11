@@ -18,6 +18,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatExpansionModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatListModule
 
   ],
   providers: [],

@@ -45,4 +45,11 @@
     <mat-card-title>
         <p>Followers</p>
     </mat-card-title>
+    <mat-action-list role="list">
+        <button mat-list-item role="listitem"
+            *ngFor="let follower of followers">
+            <img class="recent-search-avatar" matListAvatar [src]="follower?.avatar_url" alt="recent-search-avatar" />
+            <span class="follower-label">{{ follower?.login }}</span>
+        </button>
+    </mat-action-list>
 </mat-card>

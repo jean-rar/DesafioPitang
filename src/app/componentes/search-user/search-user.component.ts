@@ -17,10 +17,9 @@ export class SearchUserComponent implements OnInit {
   loading = false;
   user: any;
   userLogin = '';
-
+  followers =[];
   searchCtrl = new FormControl('', Validators.required);
 
-  followers: any;
   constructor(private githubApiService: GithubApiService, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -39,6 +38,8 @@ export class SearchUserComponent implements OnInit {
 
   public followList(value: string): void {
     this.expandPanel = true;
-    this.followers = this.http.get(`https://api.github.com/users/${this.userLogin}/${value}`);
+    this.http.get(`https://api.github.com/users/${this.userLogin}/${value}`).subscribe((res: any) => {
+      this.followers = res;
+    });
   }
 }
