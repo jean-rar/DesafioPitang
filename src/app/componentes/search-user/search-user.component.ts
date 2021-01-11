@@ -18,6 +18,9 @@ export class SearchUserComponent implements OnInit {
   user: any;
   userLogin = '';
   followers =[];
+  following =[];
+  expandFollowingPanel = false;
+
   searchCtrl = new FormControl('', Validators.required);
 
   constructor(private githubApiService: GithubApiService, private http: HttpClient) { }
@@ -32,14 +35,28 @@ export class SearchUserComponent implements OnInit {
     this.githubApiService.getUser(this.searchCtrl.value).subscribe((res: User) => {
       this.userLogin = res.login;
       this.user = res;
+      console.log(this.user)
       this.loading = false;
     });
   }
 
   public followList(value: string): void {
     this.expandPanel = true;
+    this.expandFollowingPanel = false;
     this.http.get(`https://api.github.com/users/${this.userLogin}/${value}`).subscribe((res: any) => {
       this.followers = res;
     });
+  }
+
+  public followingList(value: string): void {
+    this.expandFollowingPanel = true;
+    this.expandPanel = false;
+    this.http.get(`https://api.github.com/users/${this.userLogin}/${value}`).subscribe((res: any) => {
+      this.following = res;
+    });
+  }
+
+  public respositorieList(value: string):void{
+
   }
 }
